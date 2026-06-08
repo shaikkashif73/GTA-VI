@@ -22,7 +22,7 @@ const App = () => {
         if (this.progress() >= 0.9) {
           document.querySelector(".svg").remove();
           setShowContent(true);
-          this.kill();
+          this.kill(); 
         }
       },
     });
