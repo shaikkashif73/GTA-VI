@@ -22,7 +22,7 @@ const App = () => {
         if (this.progress() >= 0.9) {
           document.querySelector(".svg").remove();
           setShowContent(true);
-          this.kill(); 
+          this.kill();
         }
       },
     });
@@ -60,6 +60,30 @@ const App = () => {
           </svg>
         </div>
       </div>
+      {showContent && (
+        <div className="main w-full">
+          <div className="landing  w-full h-screen  bg-black">
+            <div className="navbar w-full px-10 py-10 bg-amber-700 absolute top-0 left-0 z-[10]"></div>
+            <div className=" imagesdiv relative h-screen w-full">
+              <img
+                className="  absolute top-0 left-0   w-full h-full object-cover"
+                src="./sky.png"
+                alt=""
+              />
+              <img
+                className="  absolute top-0 left-0   w-full h-full object-cover"
+                src="./bg.png"
+                alt=""
+              />
+              <img
+                className="absolute -bottom-[25%] scale-[1.4] left-1/2 -translate-1/2 "
+                src="./girlbg.png"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };
