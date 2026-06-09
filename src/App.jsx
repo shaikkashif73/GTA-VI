@@ -29,6 +29,46 @@ const App = () => {
   });
 
   useGSAP(() => {
+    if (!showContent) return;
+    gsap.to(".main", {
+      scale: 1,
+      rotate: 0,
+      duration: 2,
+      delay: "-1",
+      ease: "Expo.eaesInOut",
+    });
+    gsap.to(".sky", {
+      scale: 1.1,
+      rotate: 0,
+      duration: 2,
+      delay: "-.8",
+      ease: "Expo.eaesInOut",
+    });
+
+    gsap.to(".bg", {
+      scale: 1.1,
+      rotate: 0,
+      duration: 2,
+      delay: "-1",
+      ease: "Expo.eaesInOut",
+    });
+
+    gsap.to(".character", {
+      x: "-50%",
+      scale: 1.4,
+      rotate: 0,
+      //bottom:"-25%",
+      duration: 2,
+      delay: "-1",
+      ease: "Expo.eaesInOut",
+    });
+    gsap.to(".text", {
+      scale: 1,
+      rotate: 0,
+      duration: 2,
+      delay: "-1",
+      ease: "Expo.eaesInOut",
+    });
     const main = document.querySelector(".main");
     main?.addEventListener("mousemove", function (e) {
       const xMove = (e.clientX / window.innerWidth - 0.5) * 40;
@@ -37,6 +77,9 @@ const App = () => {
       });
       gsap.to(".sky", {
         x: xMove,
+      });
+      gsap.to(".bg", {
+        x: xMove * 1.7,
       });
     });
   }, [showContent]);
@@ -74,8 +117,8 @@ const App = () => {
         </div>
       </div>
       {showContent && (
-        <div className="main w-full">
-          <div className="landing  w-full h-screen  bg-black">
+        <div className="main w-full    rotate-[-10deg ] scale-[1.7]">
+          <div className="landing overflow-hidden relative w-full h-screen  bg-black">
             <div className="navbar w-full px-10 py-10 text-white absolute top-0 left-0 z-[10]">
               <div className="logo flex gap-7">
                 <div className="lines flex flex-col gap-[10px]">
@@ -88,22 +131,22 @@ const App = () => {
             </div>
             <div className=" imagesdiv overflow-hidden relative h-screen w-full">
               <img
-                className="  absolute top-0 left-0   w-full h-full object-cover"
+                className="  sky absolute top-0 left-0  scale-[1.5] rotate-[-20deg]  w-full h-full object-cover"
                 src="./sky.png"
                 alt=""
               />
               <img
-                className="  absolute top-0 left-0   w-full h-full object-cover"
+                className=" bg scale-[1.8] rotate-[-3deg] absolute top-0 left-0   w-full h-full object-cover"
                 src="./bg.png"
                 alt=""
               />
-              <div className="text text-white flex flex-col gap-4 absolute top-20 left-1/2 -translate-x-1/2">
+              <div className="text text-white flex flex-col gap-4 absolute top-20 scale-[1.4] rotate-[-10deg] left-1/2 -translate-x-1/2">
                 <h1 className="text-[22rem] leading-none -ml-40">grand</h1>
                 <h1 className="text-[22rem] leading-none ml-20">theft</h1>
                 <h1 className="text-[22rem] leading-none -ml-50">auto</h1>
               </div>
               <img
-                className="absolute -bottom-[25%] scale-[1.4] left-1/2 -translate-1/2 "
+                className="absolute character -bottom-[24.5%] scale-[3] rotate-[-20deg] left-1/2 -translate-1/2 "
                 src="./girlbg.png"
                 alt=""
               />
@@ -118,6 +161,44 @@ const App = () => {
                 src="./ps5.png"
                 alt=""
               />
+            </div>
+          </div>
+          <div className="w-full h-screen flex flex items-center justify-center  bg-black">
+            <div className="cntnr flex text-white w-full h-[80%] ">
+              <div className="limg relative w-1/2 h-full">
+                <img
+                  className=" absolute scale-[2] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                  src="./imag.png"
+                  alt=""
+                />
+              </div>
+              <div className="rg w-[30%] py-30">
+                <h1 className="text-9xl">Still Hunting, </h1>
+                <h1 className="text-9xl">Not Running</h1>
+                <p className="mt-10 text-3xl font-[Arial]">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Soluta totam laboriosam aliquam, provident error non
+                  laudantium temporibus maxime, dolorem odit id exercitationem
+                  aperiam.
+                </p>
+                <p className="mt-5 text-3xl font-[Arial]">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Molestiae voluptatum dolorum ex, magni optio id ratione
+                  doloremque quas culpa eveniet eius quidem aliquam atque vero
+                  repudiandae quod quis, saepe reiciendis ullam nulla
+                  reprehenderit nihil inventore.
+                </p>
+                <p className="mt-10 text-3xl font-[Arial]">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Molestiae voluptatum dolorum ex, magni optio id ratione
+                  doloremque quas culpa eveniet eius quidem aliquam atque vero
+                  repudiandae quod quis, saepe reiciendis ullam nulla
+                  reprehenderit nihil inventore.
+                </p>
+                <button className="bg-yellow-500 px-10 py-10 text-black mt-15 text-6xl">
+                  Download Now
+                </button>
+              </div>
             </div>
           </div>
         </div>
